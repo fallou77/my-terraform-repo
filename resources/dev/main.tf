@@ -1,8 +1,8 @@
 #######################################################
 # VPC Module
 #######################################################
-imodule "vpc" {
-  source = "github.com/fallou77/my-terraform-repo//modules/vpc"
+module "vpc" {
+  source = "../../modules/vpc"  # LOCAL PATH
 
   vpc_name             = var.vpc_name
   vpc_cidr             = var.vpc_cidr
@@ -17,7 +17,7 @@ imodule "vpc" {
 # Security Group Module
 #######################################################
 module "sg" {
-  source = "github.com/fallou77/my-terraform-repo//modules/sg"
+  source = "../../modules/sg"   # LOCAL PATH
 
   sg_name        = var.sg_name
   sg_description = var.sg_description
@@ -29,7 +29,7 @@ module "sg" {
 # EC2 Module
 #######################################################
 module "ec2" {
-  source = "github.com/fallou77/my-terraform-repo//modules/ec2"
+  source = "../../modules/ec2"  # LOCAL PATH
 
   ami_id        = var.ami_id
   instance_type = var.instance_type
@@ -43,30 +43,7 @@ module "ec2" {
 # S3 Module
 #######################################################
 module "s3" {
-  source      = "github.com/fallou77/my-terraform-repo//modules/s3"
+  source      = "../../modules/s3"  # LOCAL PATH
   bucket_name = var.bucket_name
-}
-
-#######################################################
-# Outputs
-#######################################################
-output "vpc_id" {
-  value = module.vpc.vpc_id
-}
-
-output "sg_id" {
-  value = module.sg.sg_id
-}
-
-output "ec2_instance_id" {
-  value = module.ec2.instance_id
-}
-
-output "ec2_public_ip" {
-  value = module.ec2.public_ip
-}
-
-output "s3_bucket_name" {
-  value = module.s3.bucket_name
 }
 
