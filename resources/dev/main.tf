@@ -1,9 +1,5 @@
-#######################################################
-# VPC Module
-#######################################################
 module "vpc" {
-  source = "../../modules/vpc"  # LOCAL PATH
-
+  source = "git::https://github.com/fallou77/my-terraform-repo.git//modules/vpc"
   vpc_name             = var.vpc_name
   vpc_cidr             = var.vpc_cidr
   public_subnet_1_cidr = var.public_subnet_1_cidr
@@ -13,24 +9,16 @@ module "vpc" {
   region               = var.region
 }
 
-#######################################################
-# Security Group Module
-#######################################################
 module "sg" {
-  source = "../../modules/sg"   # LOCAL PATH
-
+  source = "git::https://github.com/fallou77/my-terraform-repo.git//modules/sg"
   sg_name        = var.sg_name
   sg_description = var.sg_description
   vpc_id         = module.vpc.vpc_id
   ingress_rules  = var.ingress_rules
 }
 
-#######################################################
-# EC2 Module
-#######################################################
 module "ec2" {
-  source = "../../modules/ec2"  # LOCAL PATH
-
+  source = "git::https://github.com/fallou77/my-terraform-repo.git//modules/ec2"
   ami_id        = var.ami_id
   instance_type = var.instance_type
   key_name      = var.key_name
@@ -39,11 +27,8 @@ module "ec2" {
   instance_name = var.instance_name
 }
 
-#######################################################
-# S3 Module
-#######################################################
 module "s3" {
-  source      = "../../modules/s3"  # LOCAL PATH
+  source      = "git::https://github.com/fallou77/my-terraform-repo.git//modules/s3"
   bucket_name = var.bucket_name
 }
 
