@@ -1,8 +1,8 @@
 #######################################################
 # VPC Module
 #######################################################
-module "vpc" {
-  source = "github.com/fallou77/s11-terraform//modules/vpc"
+imodule "vpc" {
+  source = "github.com/fallou77/my-terraform-repo//modules/vpc"
 
   vpc_name             = var.vpc_name
   vpc_cidr             = var.vpc_cidr
@@ -17,7 +17,7 @@ module "vpc" {
 # Security Group Module
 #######################################################
 module "sg" {
-  source = "github.com/fallou77/s11-terraform//modules/sg"
+  source = "github.com/fallou77/my-terraform-repo//modules/sg"
 
   sg_name        = var.sg_name
   sg_description = var.sg_description
@@ -29,7 +29,7 @@ module "sg" {
 # EC2 Module
 #######################################################
 module "ec2" {
-  source = "github.com/fallou77/s11-terraform//modules/ec2"
+  source = "github.com/fallou77/my-terraform-repo//modules/ec2"
 
   ami_id        = var.ami_id
   instance_type = var.instance_type
@@ -43,7 +43,7 @@ module "ec2" {
 # S3 Module
 #######################################################
 module "s3" {
-  source      = "github.com/fallou77/s11-terraform//modules/s3"
+  source      = "github.com/fallou77/my-terraform-repo//modules/s3"
   bucket_name = var.bucket_name
 }
 
