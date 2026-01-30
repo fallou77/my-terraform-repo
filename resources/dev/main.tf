@@ -23,12 +23,14 @@ module "ec2" {
   instance_type = var.instance_type
   key_name      = var.key_name
   subnet_id     = module.vpc.public_subnet_1_id
-  sg_id         = module.sg.sg_id
+  security_group_id         = module.sg.sg_id
   instance_name = var.instance_name
+  region             = var.region
 }
 
 module "s3" {
   source      = "git::https://github.com/fallou77/my-terraform-repo.git//modules/s3"
   bucket_name = var.bucket_name
+  region      = var.region
 }
 
