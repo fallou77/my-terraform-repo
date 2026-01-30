@@ -1,0 +1,7 @@
+region            = "us-east-1"
+ami_id            = "ami-0c55b159cbfafe1f0"
+instance_type     = "t2.small"
+key_name          = "prod-key"
+subnet_id         = "subnet-xxxxxx"
+security_group_id = "sg-xxxxxx"
+bucket_name       = "s11-prod-bucket"
