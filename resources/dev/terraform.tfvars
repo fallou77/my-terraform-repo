@@ -29,7 +29,7 @@ ingress_rules = [
 # EC2
 ami_id        = "ami-0b6c6ebed2801a5cb"
 instance_type = "t2.micro"
-key_name      = "s11"
+key_name      = "demo-key"
 instance_name = "dev-instance"
 
 # S3
