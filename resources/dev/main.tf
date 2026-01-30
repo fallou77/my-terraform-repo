@@ -15,6 +15,7 @@ module "sg" {
   sg_description = var.sg_description
   vpc_id         = module.vpc.vpc_id
   ingress_rules  = var.ingress_rules
+  region      = var.region
 }
 
 module "ec2" {
